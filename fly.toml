@@ -1,5 +1,26 @@
-app = "fly-log-shipper-example"
+# fly.toml app configuration file generated for sfce-fly-log-shipper on 2024-08-29T09:42:48-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[metrics]
+app = 'sfce-fly-log-shipper'
+primary_region = 'sjc'
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[[metrics]]
   port = 9598
-  path = "/metrics"
+  path = '/metrics'
