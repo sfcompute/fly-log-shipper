@@ -8,4 +8,4 @@ filter /etc/vector/sinks/*.toml 2>&-
 echo 'Configured sinks:'
 find /etc/vector/sinks -type f -exec basename -s '.toml' {} \;
 
-exec vector -c /etc/vector/vector.toml -C /etc/vector/sinks
+exec vector -c /etc/vector/vector.toml -C /etc/vector/sinks --verbose
